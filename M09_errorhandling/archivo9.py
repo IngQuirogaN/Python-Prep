@@ -1,7 +1,7 @@
 class funciones_lista:
     def __init__(self,lista):
         if (type(lista)!=list):
-            raise ValueError('Se ha creado una lista vacía. Se esperaba una lista de núemeros enteros') 
+            raise ValueError('El objeto ingresado no es una lista') 
         self.lista=lista
 
 
@@ -13,23 +13,30 @@ class funciones_lista:
                 print('El elemento', i, 'NO es un numero primo')
 
     def lista_grados(self, origen, destino):
+        lista_respuesta=[]
         for i in self.lista:
-            print(self.convert_grados(i,origen,destino))
+            lista_respuesta.append(self.convert_grados(i,origen,destino))
+        return lista_respuesta
     
     def lista_factorial(self):
+        lista_respuesta=[]
         for i in self.lista:
-            print('El factorial de ', i, 'es', self.factorial(i))
+            lista_respuesta.append(self.factorial(i))
+        return lista_respuesta
 
     def primo(self,numero):
+        lista_respuesta=[]
         self.numero=numero
         self.primoflag=0
         for i in range(2,self.numero):
             if numero%i==0:
                 self.primoflag =1
         if self.primoflag==0:
-            return True
+            lista_respuesta.append(True)
         else:
-            return False
+            lista_respuesta.append(False)
+        
+        return lista_respuesta
         
     def contar_repetido(self):
         self.contador_max=0
